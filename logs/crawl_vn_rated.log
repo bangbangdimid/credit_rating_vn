@@ -1,0 +1,222 @@
+2026-03-11 17:42:39,219 | INFO     | ============================================================
+2026-03-11 17:42:39,220 | INFO     | VN RATED COMPANIES BCTC CRAWLER
+2026-03-11 17:42:39,220 | INFO     | ============================================================
+2026-03-11 17:42:40,607 | INFO     | vnstock import OK — source=KBS
+2026-03-11 17:42:40,613 | INFO     | VN rated firms: 45 rows
+2026-03-11 17:42:40,627 | INFO     | Unique tickers: 43: ['BCM', 'DSC', 'GEX', 'TCX', 'MSB', 'BSI', 'TVS', 'VCP', 'CTD', 'VCB', 'HUT', 'SGR', 'VHM', 'TPB', 'MBS', 'OCB', 'VND', 'PSI', 'LPB', 'VCI', 'ABB', 'VAB', 'VIB', 'F88', 'SHS', 'BAB', 'HDB', 'VIC', 'NAB', 'ACB', 'ORS', 'APG', 'NLG', 'VPI', 'HDG', 'VCK', 'GEG', 'CMX', 'VDS', 'KDH', 'AGG', 'BCG', 'TIN']
+2026-03-11 17:42:40,628 | INFO     | 
+[1/43] Crawling BCM...
+2026-03-11 17:42:41,989 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 17:42:41,990 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 17:42:42,274 | ERROR    | Error fetching balance_sheet: Finance.balance_sheet() got an unexpected keyword argument 'lang'
+2026-03-11 17:42:47,310 | ERROR    | Error fetching income_statement: Finance.income_statement() got an unexpected keyword argument 'lang'
+2026-03-11 17:42:48,482 | ERROR    | Error fetching cash_flow: Finance.cash_flow() got an unexpected keyword argument 'lang'
+2026-03-11 17:42:49,134 | ERROR    | Error fetching ratio: Finance.ratio() got an unexpected keyword argument 'lang'
+2026-03-11 17:42:50,301 | INFO     |   BCM: 13/15 features OK
+2026-03-11 17:42:50,304 | WARNING  |   BCM attempt 1/3: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - `Import pyarrow` failed. pyarrow is required for parquet support. Use pip or conda to install the pyarrow package.
+ - `Import fastparquet` failed. fastparquet is required for parquet support. Use pip or conda to install the fastparquet package.
+2026-03-11 17:42:58,306 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 17:42:58,309 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 17:42:58,310 | ERROR    | Error fetching balance_sheet: Finance.balance_sheet() got an unexpected keyword argument 'lang'
+2026-03-11 17:42:58,878 | ERROR    | Error fetching income_statement: Finance.income_statement() got an unexpected keyword argument 'lang'
+2026-03-11 17:42:59,770 | ERROR    | Error fetching cash_flow: Finance.cash_flow() got an unexpected keyword argument 'lang'
+2026-03-11 17:43:00,472 | ERROR    | Error fetching ratio: Finance.ratio() got an unexpected keyword argument 'lang'
+2026-03-11 17:43:01,549 | INFO     |   BCM: 13/15 features OK
+2026-03-11 17:43:01,552 | WARNING  |   BCM attempt 2/3: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - `Import pyarrow` failed. pyarrow is required for parquet support. Use pip or conda to install the pyarrow package.
+ - `Import fastparquet` failed. fastparquet is required for parquet support. Use pip or conda to install the fastparquet package.
+2026-03-11 17:43:09,554 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 17:43:09,555 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 17:43:09,557 | ERROR    | Error fetching balance_sheet: Finance.balance_sheet() got an unexpected keyword argument 'lang'
+2026-03-11 18:04:14,482 | INFO     | ============================================================
+2026-03-11 18:04:14,483 | INFO     | VN RATED COMPANIES — BCTC CRAWLER v2
+2026-03-11 18:04:14,484 | INFO     | ============================================================
+2026-03-11 18:04:24,902 | INFO     | vnstock import OK (source=KBS)
+2026-03-11 18:04:24,919 | INFO     | Sẽ crawl 43 tickers: ['BCM', 'DSC', 'GEX', 'TCX', 'MSB', 'BSI', 'TVS', 'VCP', 'CTD', 'VCB', 'HUT', 'SGR', 'VHM', 'TPB', 'MBS', 'OCB', 'VND', 'PSI', 'LPB', 'VCI', 'ABB', 'VAB', 'VIB', 'F88', 'SHS', 'BAB', 'HDB', 'VIC', 'NAB', 'ACB', 'ORS', 'APG', 'NLG', 'VPI', 'HDG', 'VCK', 'GEG', 'CMX', 'VDS', 'KDH', 'AGG', 'BCG', 'TIN']
+2026-03-11 18:04:24,920 | INFO     | Rate limit KBS Guest: 20 req/phút
+2026-03-11 18:04:24,921 | INFO     | Delay: 4.0s/call + 5.0s/ticker
+2026-03-11 18:04:24,921 | INFO     | Thời gian ước tính: ~15 phút
+
+2026-03-11 18:04:24,921 | INFO     | [ 1/43] BCM...
+2026-03-11 18:04:48,390 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:04:48,390 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:05:09,671 | INFO     |   BCM: 13/15 features OK
+2026-03-11 18:05:14,703 | INFO     | [ 2/43] DSC...
+2026-03-11 18:05:14,704 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:05:14,705 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:05:33,503 | INFO     |   DSC: 10/15 features OK
+2026-03-11 18:05:38,508 | INFO     | [ 3/43] GEX...
+2026-03-11 18:05:38,510 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:05:38,511 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:05:58,154 | INFO     |   GEX: 13/15 features OK
+2026-03-11 18:06:03,159 | INFO     | [ 4/43] TCX...
+2026-03-11 18:06:03,163 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:06:03,165 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:06:22,062 | INFO     |   TCX: 10/15 features OK
+2026-03-11 18:06:27,066 | INFO     | [ 5/43] MSB...
+2026-03-11 18:06:27,069 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:06:27,070 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:06:45,882 | INFO     |   MSB: 6/15 features OK
+2026-03-11 18:06:50,886 | INFO     | [ 6/43] BSI...
+2026-03-11 18:06:50,887 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:06:50,888 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:07:12,117 | INFO     |   BSI: 10/15 features OK
+2026-03-11 18:07:17,122 | INFO     | [ 7/43] TVS...
+2026-03-11 18:07:17,123 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:07:17,124 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:07:36,353 | INFO     |   TVS: 10/15 features OK
+2026-03-11 18:07:41,358 | INFO     | [ 8/43] VCP...
+2026-03-11 18:07:41,360 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:07:41,362 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:08:00,402 | INFO     |   VCP: 13/15 features OK
+2026-03-11 18:08:05,419 | INFO     | [ 9/43] CTD...
+2026-03-11 18:08:05,422 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:08:05,424 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:08:24,631 | INFO     |   CTD: 13/15 features OK
+2026-03-11 18:08:29,636 | INFO     | [10/43] VCB...
+2026-03-11 18:08:29,639 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:08:29,640 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:08:48,675 | INFO     |   VCB: 6/15 features OK
+2026-03-11 18:08:53,678 | INFO     | [11/43] HUT...
+2026-03-11 18:08:53,682 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:08:53,684 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:09:13,149 | INFO     |   HUT: 13/15 features OK
+2026-03-11 18:09:18,154 | INFO     | [12/43] SGR...
+2026-03-11 18:09:18,156 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:09:18,157 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:09:38,660 | INFO     |   SGR: 13/15 features OK
+2026-03-11 18:09:43,665 | INFO     | [13/43] VHM...
+2026-03-11 18:09:43,667 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:09:43,668 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:10:02,554 | INFO     |   VHM: 13/15 features OK
+2026-03-11 18:10:07,559 | INFO     | [14/43] TPB...
+2026-03-11 18:10:07,564 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:10:07,565 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:10:26,672 | INFO     |   TPB: 6/15 features OK
+2026-03-11 18:10:31,676 | INFO     | [15/43] MBS...
+2026-03-11 18:10:31,678 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:10:31,679 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:10:51,045 | INFO     |   MBS: 10/15 features OK
+2026-03-11 18:10:56,058 | INFO     | [16/43] OCB...
+2026-03-11 18:10:56,060 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:10:56,060 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:11:15,191 | INFO     |   OCB: 6/15 features OK
+2026-03-11 18:11:20,196 | INFO     | [17/43] VND...
+2026-03-11 18:11:20,200 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:11:20,202 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:11:39,645 | INFO     |   VND: 10/15 features OK
+2026-03-11 18:11:44,649 | INFO     | [18/43] PSI...
+2026-03-11 18:11:44,650 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:11:44,651 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:12:04,670 | INFO     |   PSI: 10/15 features OK
+2026-03-11 18:12:09,675 | INFO     | [19/43] LPB...
+2026-03-11 18:12:09,678 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:12:09,679 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:12:28,579 | INFO     |   LPB: 6/15 features OK
+2026-03-11 18:12:33,585 | INFO     | [20/43] VCI...
+2026-03-11 18:12:33,588 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:12:33,588 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:12:52,853 | INFO     |   VCI: 10/15 features OK
+2026-03-11 18:12:57,857 | INFO     | [21/43] ABB...
+2026-03-11 18:12:57,859 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:12:57,860 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:13:16,367 | INFO     |   ABB: 6/15 features OK
+2026-03-11 18:13:21,372 | INFO     | [22/43] VAB...
+2026-03-11 18:13:21,374 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:13:21,375 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:13:40,623 | INFO     |   VAB: 6/15 features OK
+2026-03-11 18:13:45,628 | INFO     | [23/43] VIB...
+2026-03-11 18:13:45,630 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:13:45,630 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:14:04,373 | INFO     |   VIB: 6/15 features OK
+2026-03-11 18:14:09,378 | INFO     | [24/43] F88...
+2026-03-11 18:14:09,381 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 18:14:09,382 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 22:21:13,012 | ERROR    | Non-200 response fetching content: 400
+2026-03-11 23:34:46,208 | INFO     |   F88: 13/15 features OK
+2026-03-11 23:34:51,213 | INFO     | [25/43] SHS...
+2026-03-11 23:34:51,215 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:34:51,215 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:35:11,143 | INFO     |   SHS: 10/15 features OK
+2026-03-11 23:35:16,148 | INFO     | [26/43] BAB...
+2026-03-11 23:35:16,150 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:35:16,151 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:35:34,901 | INFO     |   BAB: 6/15 features OK
+2026-03-11 23:35:39,922 | INFO     | [27/43] HDB...
+2026-03-11 23:35:39,923 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:35:39,924 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:35:58,760 | INFO     |   HDB: 6/15 features OK
+2026-03-11 23:36:03,767 | INFO     | [28/43] VIC...
+2026-03-11 23:36:03,768 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:36:03,768 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:36:22,853 | INFO     |   VIC: 13/15 features OK
+2026-03-11 23:36:27,858 | INFO     | [29/43] NAB...
+2026-03-11 23:36:27,861 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:36:27,862 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:36:46,723 | INFO     |   NAB: 6/15 features OK
+2026-03-11 23:36:51,728 | INFO     | [30/43] ACB...
+2026-03-11 23:36:51,729 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:36:51,729 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:37:11,352 | INFO     |   ACB: 6/15 features OK
+2026-03-11 23:37:16,357 | INFO     | [31/43] ORS...
+2026-03-11 23:37:16,358 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:37:16,361 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:37:35,211 | INFO     |   ORS: 10/15 features OK
+2026-03-11 23:37:40,218 | INFO     | [32/43] APG...
+2026-03-11 23:37:40,220 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:37:40,223 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:37:59,679 | INFO     |   APG: 10/15 features OK
+2026-03-11 23:38:04,682 | INFO     | [33/43] NLG...
+2026-03-11 23:38:04,685 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:38:04,687 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:38:24,805 | INFO     |   NLG: 13/15 features OK
+2026-03-11 23:38:29,812 | INFO     | [34/43] VPI...
+2026-03-11 23:38:29,815 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:38:29,817 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:38:48,905 | INFO     |   VPI: 13/15 features OK
+2026-03-11 23:38:53,910 | INFO     | [35/43] HDG...
+2026-03-11 23:38:53,913 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:38:53,915 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:39:12,821 | INFO     |   HDG: 13/15 features OK
+2026-03-11 23:39:17,829 | INFO     | [36/43] VCK...
+2026-03-11 23:39:17,831 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:39:17,831 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:39:41,676 | INFO     |   VCK: 10/15 features OK
+2026-03-11 23:39:46,680 | INFO     | [37/43] GEG...
+2026-03-11 23:39:46,696 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:39:46,696 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:40:05,544 | INFO     |   GEG: 13/15 features OK
+2026-03-11 23:40:10,550 | INFO     | [38/43] CMX...
+2026-03-11 23:40:10,553 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:40:10,554 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:40:29,197 | INFO     |   CMX: 13/15 features OK
+2026-03-11 23:40:34,203 | INFO     | [39/43] VDS...
+2026-03-11 23:40:34,205 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:40:34,206 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:40:53,314 | INFO     |   VDS: 10/15 features OK
+2026-03-11 23:40:58,318 | INFO     | [40/43] KDH...
+2026-03-11 23:40:58,320 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:40:58,321 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:41:18,143 | INFO     |   KDH: 13/15 features OK
+2026-03-11 23:41:23,148 | INFO     | [41/43] AGG...
+2026-03-11 23:41:23,150 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:41:23,151 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:41:43,257 | INFO     |   AGG: 13/15 features OK
+2026-03-11 23:41:48,261 | INFO     | [42/43] BCG...
+2026-03-11 23:41:48,264 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:41:48,266 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:42:06,807 | INFO     |   BCG: 13/15 features OK
+2026-03-11 23:42:11,822 | INFO     | [43/43] TIN...
+2026-03-11 23:42:11,824 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:42:11,825 | INFO     | Loaded 162 built-in KBS field mappings
+2026-03-11 23:42:30,133 | INFO     |   TIN: 6/15 features OK
+2026-03-11 23:42:30,137 | INFO     | 
+============================================================
+2026-03-11 23:42:30,137 | INFO     | Xong: 43/43 thành công
+2026-03-11 23:42:30,151 | INFO     | ✓ Saved: C:\Users\NGOCD\Downloads\credit_rating_vn\data\raw\vn_rated_with_financials.csv
+2026-03-11 23:42:30,153 | INFO     | ✓ Saved: C:\Users\NGOCD\Downloads\credit_rating_vn\data\processed\vn_firms_crawled.csv

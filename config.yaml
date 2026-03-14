@@ -1,0 +1,131 @@
+# ============================================================
+# config.yaml
+# VN Corporate Credit Rating System — Configuration
+# ============================================================
+# Tất cả paths, hyperparameters, và settings tập trung ở đây.
+# main.py và các module đọc file này qua load_config().
+# ============================================================
+
+# ---- Paths ------------------------------------------------
+paths:
+  # Input data
+  kaggle_raw:       data/raw/corporate_credit_rating.csv
+  vn_rated:         data/raw/vn_rated.csv          # VN firms đã có rating (FiinRatings/VIS)
+
+  # Processed data (auto-generated)
+  kaggle_mapped:    data/processed/kaggle_mapped.csv
+  vn_crawled:       data/processed/vn_firms_crawled.csv
+  training_data:    data/processed/training_data.csv
+  vn_unrated:       data/processed/vn_unrated.csv
+
+  # Output
+  predictions:      data/output/predictions.csv
+
+  # Artifacts
+  model:            models/best_model.pkl
+  processor:        models/processor.pkl
+  plots_dir:        plots/
+  logs_dir:         logs/
+
+# ---- Data Collection ---------------------------------------
+crawl:
+  source: VCI              # VCI hoặc TCBS (nguồn vnstock)
+  request_delay: 4.0       # giây giữa mỗi ticker
+  batch_pause: 70.0         # giây nghỉ mỗi 10 tickers
+  batch_size: 5         # số tickers mỗi batch
+  max_missing_features: 5  # bỏ qua ticker nếu thiếu quá nhiều features
+  default_tickers:         # fallback nếu không chỉ định --tickers
+    - VCB
+    - BID
+    - CTG
+    - VNM
+    - FPT
+    - HPG
+    - VIC
+    - HDB
+    - TCB
+    - MWG
+    - VHM
+    - MSN
+    - GAS
+    - REE
+    - VPB
+    - ACB
+    - MBB
+    - SSI
+    - PNJ
+    - DGC
+
+# ---- Merge ------------------------------------------------
+merge:
+  vn_weight: 3.0           # upweight VN rated firms (3x duplication)
+
+# ---- Model Training ----------------------------------------
+training:
+  random_state: 42
+  test_size: 0.20          # 20% test split
+  cv_folds: 5              # Stratified K-Fold CV
+
+  # Rating scale (thứ tự từ tốt → xấu)
+  rating_scale:
+    - AAA
+    - AA
+    - A
+    - BBB
+    - BB
+    - B
+    - CCC
+    - CC
+    - C
+    - D
+
+  # Random Forest
+  random_forest:
+    n_estimators: 300
+    max_depth: 10
+    min_samples_split: 5
+    class_weight: balanced
+
+  # XGBoost
+  xgboost:
+    n_estimators: 300
+    max_depth: 8
+    learning_rate: 0.03
+    subsample: 0.8
+    colsample_bytree: 0.8
+    min_child_weight: 3
+    gamma: 0.1
+
+  # Gradient Boosting
+  gradient_boosting:
+    n_estimators: 200
+    max_depth: 6
+    learning_rate: 0.05
+    subsample: 0.8
+
+# ---- Features ---------------------------------------------
+features:
+  universal:
+    - ROA
+    - ROE
+    - ROCE
+    - EBIT_Margin
+    - Current_Ratio
+    - Revenue_Growth_YoY
+    - Log_Revenue
+    - Market_Cap
+
+  sector_dependent:
+    - Debt/Assets
+    - Debt/Equity
+    - Net_Debt/EBITDA
+    - Asset_Turnover
+    - WCTA
+    - RETA
+    - Market_to_Book
+
+# ---- Logging ----------------------------------------------
+logging:
+  level: INFO              # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s | %(levelname)-8s | %(message)s"
+  file: logs/main.log

@@ -1,0 +1,366 @@
+2026-03-01 08:35:32,436 | INFO     | Config loaded từ: C:\Users\NGOCD\Downloads\credit_rating_vn\config.yaml
+2026-03-01 08:35:32,438 | INFO     | ============================================================
+2026-03-01 08:35:32,439 | INFO     | QUICK TRAIN — bypass stratify bug
+2026-03-01 08:35:32,440 | INFO     | ============================================================
+2026-03-01 08:35:32,440 | INFO     | Loading: data\processed\training_data.csv
+2026-03-01 08:35:32,457 | INFO     | Loaded: 608 records, 56 columns
+2026-03-01 08:35:32,458 | INFO     | Detected data source: vnstock
+2026-03-01 08:35:32,475 | INFO     | Mapping report: {'n_records': 608, 'missing_feature_cols': [], 'missing_meta_cols': [], 'null_percentage': {}, 'is_valid': True}
+2026-03-01 08:35:32,479 | INFO     | Records với valid rating: 608
+2026-03-01 08:35:32,482 | INFO     | Rating distribution:
+Credit_Rating
+BBB    210
+BB     141
+B      100
+A       96
+AA      31
+CCC     27
+D        1
+AAA      1
+C        1
+Name: count, dtype: int64
+2026-03-01 08:35:32,483 | WARNING  | Ratings quá ít mẫu: ['D', 'AAA', 'C'] → gộp với class lân cận
+2026-03-01 08:35:32,487 | INFO     | Rating distribution sau gộp:
+Credit_Rating
+BBB    210
+BB     141
+B      100
+A       96
+AA      32
+CCC     29
+Name: count, dtype: int64
+2026-03-01 08:35:32,487 | INFO     | Cleaning 608 records...
+2026-03-01 08:35:32,490 | INFO     |   Dedup by Ticker: 608 → 598
+2026-03-01 08:35:32,538 | INFO     | Cleaned: 598 records
+2026-03-01 08:35:32,552 | INFO     | FeatureEngineer fitted on 598 samples, 7 sector-dependent features
+2026-03-01 08:35:32,554 | INFO     | Starting feature engineering...
+2026-03-01 08:35:32,698 | INFO     |   Interaction terms: 48
+2026-03-01 08:35:32,754 | INFO     | Total features: 101
+2026-03-01 08:35:32,754 | INFO     | Feature matrix shape: (598, 101)
+2026-03-01 08:35:32,766 | INFO     | Feature matrix: (598, 101)
+2026-03-01 08:35:32,767 | INFO     | Classes: [np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5)]
+2026-03-01 08:35:32,770 | INFO     | Train: 478 | Test: 120
+2026-03-01 08:35:32,770 | INFO     | ======================================================================
+2026-03-01 08:35:32,771 | INFO     | TRAINING MODELS
+2026-03-01 08:35:32,771 | INFO     | ======================================================================
+2026-03-01 08:35:32,772 | INFO     | 
+[1/3] Training RandomForest...
+2026-03-01 08:35:36,597 | INFO     |   CV Accuracy: 0.3599 ± 0.0515
+2026-03-01 08:35:36,597 | INFO     | 
+[2/3] Training XGBoost...
+2026-03-01 08:35:47,841 | INFO     |   CV Accuracy: 0.3450 ± 0.0530
+2026-03-01 08:35:47,841 | INFO     | 
+[3/3] Training GradientBoosting...
+2026-03-01 08:36:12,023 | INFO     |   CV Accuracy: 0.3617 ± 0.0612
+2026-03-01 08:36:12,024 | INFO     | 
+======================================================================
+2026-03-01 08:36:12,024 | INFO     | BEST: GradientBoosting  CV Acc: 0.3617
+2026-03-01 08:36:12,025 | INFO     | ======================================================================
+2026-03-01 08:36:12,054 | INFO     | 
+Top 20 Features:
+                   feature  importance
+                      ROCE    0.071272
+                  Altman_Z    0.051194
+              RETA_SectorZ    0.046072
+            Quality_Growth    0.037786
+              WCTA_SectorZ    0.034535
+            Coverage_Proxy    0.033497
+    Asset_Turnover_SectorZ    0.031334
+   Debt/Assets_SectorRatio    0.028894
+Asset_Turnover_SectorRatio    0.027301
+            Asset_Turnover    0.025375
+                       ROA    0.024139
+   EBIT_Margin_SectorRatio    0.020424
+ Current_Ratio_SectorRatio    0.020338
+           ROA_SectorRatio    0.019423
+             Current_Ratio    0.019149
+              Equity_Ratio    0.018811
+           Altman_Turnover    0.018083
+                      WCTA    0.017864
+       Debt/Assets_SectorZ    0.017717
+               Altman_WCTA    0.017396
+2026-03-01 08:36:12,056 | INFO     | 
+======================================================================
+2026-03-01 08:36:12,056 | INFO     | EVALUATION
+2026-03-01 08:36:12,057 | INFO     | ======================================================================
+2026-03-01 08:36:12,077 | INFO     | Accuracy:       0.3833
+2026-03-01 08:36:12,077 | INFO     | Kappa (quad):   0.0932
+2026-03-01 08:36:12,078 | INFO     | MAE (notches):  1.2833
+2026-03-01 08:36:12,078 | INFO     | Within 1 notch: 0.6833
+2026-03-01 08:36:12,079 | INFO     | Within 2 notch: 0.7917
+2026-03-01 08:36:12,092 | INFO     | 
+              precision    recall  f1-score   support
+
+          AA       0.25      0.17      0.20         6
+           A       0.50      0.20      0.29        20
+         BBB       0.41      0.72      0.53        40
+          BB       0.43      0.29      0.34        35
+           B       0.17      0.12      0.14        16
+         CCC       0.00      0.00      0.00         3
+
+    accuracy                           0.38       120
+   macro avg       0.29      0.25      0.25       120
+weighted avg       0.38      0.38      0.35       120
+
+2026-03-01 08:36:12,093 | INFO     | 
+Per-sector accuracy:
+2026-03-01 08:36:12,095 | INFO     |   Energy              : 0.424  (n=33)
+2026-03-01 08:36:12,097 | INFO     |   FinancialServices   : 0.200  (n=5)
+2026-03-01 08:36:12,099 | INFO     |   Healthcare          : 0.625  (n=8)
+2026-03-01 08:36:12,101 | INFO     |   Manufacturing       : 0.333  (n=33)
+2026-03-01 08:36:12,103 | INFO     |   Other               : 0.500  (n=8)
+2026-03-01 08:36:12,106 | INFO     |   Retail              : 0.333  (n=18)
+2026-03-01 08:36:12,108 | INFO     |   Technology          : 0.357  (n=14)
+2026-03-01 08:36:18,047 | INFO     | Plots saved: plots\evaluation_results.png
+2026-03-01 08:36:18,231 | INFO     | Model saved: models\best_model.pkl
+2026-03-01 08:36:18,232 | INFO     | 
+✅ Training hoàn thành!
+2026-03-01 08:36:18,232 | INFO     |    Model → models/best_model.pkl
+2026-03-01 08:36:18,233 | INFO     |    Processor → models/processor.pkl
+2026-03-01 08:36:18,233 | INFO     | 
+Bước tiếp theo:
+2026-03-01 08:36:18,233 | INFO     |    python main.py predict --tickers HPG,REE,PNJ
+2026-03-01 12:13:23,581 | INFO     | Config loaded từ: C:\Users\NGOCD\Downloads\credit_rating_vn\config.yaml
+2026-03-01 12:13:23,583 | INFO     | ============================================================
+2026-03-01 12:13:23,583 | INFO     | QUICK TRAIN — bypass stratify bug
+2026-03-01 12:13:23,583 | INFO     | ============================================================
+2026-03-01 12:13:23,584 | INFO     | Loading: data\processed\training_data.csv
+2026-03-01 12:13:23,601 | INFO     | Loaded: 608 records, 56 columns
+2026-03-01 12:13:23,602 | INFO     | Detected data source: vnstock
+2026-03-01 12:13:23,609 | INFO     | Mapping report: {'n_records': 608, 'missing_feature_cols': [], 'missing_meta_cols': [], 'null_percentage': {}, 'is_valid': True}
+2026-03-01 12:13:23,613 | INFO     | Records với valid rating: 608
+2026-03-01 12:13:23,617 | INFO     | Rating distribution:
+Credit_Rating
+BBB    210
+BB     141
+B      100
+A       96
+AA      31
+CCC     27
+D        1
+AAA      1
+C        1
+Name: count, dtype: int64
+2026-03-01 12:13:23,618 | WARNING  | Ratings quá ít mẫu: ['D', 'AAA', 'C'] → gộp với class lân cận
+2026-03-01 12:13:23,621 | INFO     | Rating distribution sau gộp:
+Credit_Rating
+BBB    210
+BB     141
+B      100
+A       96
+AA      32
+CCC     29
+Name: count, dtype: int64
+2026-03-01 12:13:23,623 | INFO     | Cleaning 608 records...
+2026-03-01 12:13:23,628 | INFO     |   Dedup by Ticker: 608 → 598
+2026-03-01 12:13:23,664 | INFO     | Cleaned: 598 records
+2026-03-01 12:13:23,683 | INFO     | FeatureEngineer fitted on 598 samples, 7 sector-dependent features
+2026-03-01 12:13:23,685 | INFO     | Starting feature engineering...
+2026-03-01 12:13:23,885 | INFO     |   Interaction terms: 48
+2026-03-01 12:13:23,937 | INFO     | Total features: 101
+2026-03-01 12:13:23,937 | INFO     | Feature matrix shape: (598, 101)
+2026-03-01 12:13:23,947 | INFO     | Feature matrix: (598, 101)
+2026-03-01 12:13:23,948 | INFO     | Classes: [np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5)]
+2026-03-01 12:13:23,950 | INFO     | Train: 478 | Test: 120
+2026-03-01 12:13:23,950 | INFO     | ======================================================================
+2026-03-01 12:13:23,950 | INFO     | TRAINING MODELS
+2026-03-01 12:13:23,951 | INFO     | ======================================================================
+2026-03-01 12:13:23,951 | INFO     | 
+[1/3] Training RandomForest...
+2026-03-01 12:13:27,422 | INFO     |   CV Accuracy: 0.3599 ± 0.0515
+2026-03-01 12:13:27,423 | INFO     | 
+[2/3] Training XGBoost...
+2026-03-01 12:13:38,579 | INFO     |   CV Accuracy: 0.3450 ± 0.0530
+2026-03-01 12:13:38,580 | INFO     | 
+[3/3] Training GradientBoosting...
+2026-03-01 12:14:02,177 | INFO     |   CV Accuracy: 0.3617 ± 0.0612
+2026-03-01 12:14:02,178 | INFO     | 
+======================================================================
+2026-03-01 12:14:02,178 | INFO     | BEST: GradientBoosting  CV Acc: 0.3617
+2026-03-01 12:14:02,178 | INFO     | ======================================================================
+2026-03-01 12:14:02,216 | INFO     | 
+Top 20 Features:
+                   feature  importance
+                      ROCE    0.071272
+                  Altman_Z    0.051194
+              RETA_SectorZ    0.046072
+            Quality_Growth    0.037786
+              WCTA_SectorZ    0.034535
+            Coverage_Proxy    0.033497
+    Asset_Turnover_SectorZ    0.031334
+   Debt/Assets_SectorRatio    0.028894
+Asset_Turnover_SectorRatio    0.027301
+            Asset_Turnover    0.025375
+                       ROA    0.024139
+   EBIT_Margin_SectorRatio    0.020424
+ Current_Ratio_SectorRatio    0.020338
+           ROA_SectorRatio    0.019423
+             Current_Ratio    0.019149
+              Equity_Ratio    0.018811
+           Altman_Turnover    0.018083
+                      WCTA    0.017864
+       Debt/Assets_SectorZ    0.017717
+               Altman_WCTA    0.017396
+2026-03-01 12:14:02,219 | INFO     | 
+======================================================================
+2026-03-01 12:14:02,219 | INFO     | EVALUATION
+2026-03-01 12:14:02,220 | INFO     | ======================================================================
+2026-03-01 12:14:02,246 | INFO     | Accuracy:       0.3833
+2026-03-01 12:14:02,247 | INFO     | Kappa (quad):   0.0932
+2026-03-01 12:14:02,247 | INFO     | MAE (notches):  1.2833
+2026-03-01 12:14:02,248 | INFO     | Within 1 notch: 0.6833
+2026-03-01 12:14:02,249 | INFO     | Within 2 notch: 0.7917
+2026-03-01 12:14:02,262 | INFO     | 
+              precision    recall  f1-score   support
+
+          AA       0.25      0.17      0.20         6
+           A       0.50      0.20      0.29        20
+         BBB       0.41      0.72      0.53        40
+          BB       0.43      0.29      0.34        35
+           B       0.17      0.12      0.14        16
+         CCC       0.00      0.00      0.00         3
+
+    accuracy                           0.38       120
+   macro avg       0.29      0.25      0.25       120
+weighted avg       0.38      0.38      0.35       120
+
+2026-03-01 12:14:02,263 | INFO     | 
+Per-sector accuracy:
+2026-03-01 12:14:02,265 | INFO     |   Energy              : 0.424  (n=33)
+2026-03-01 12:14:02,267 | INFO     |   FinancialServices   : 0.200  (n=5)
+2026-03-01 12:14:02,269 | INFO     |   Healthcare          : 0.625  (n=8)
+2026-03-01 12:14:02,271 | INFO     |   Manufacturing       : 0.333  (n=33)
+2026-03-01 12:14:02,273 | INFO     |   Other               : 0.500  (n=8)
+2026-03-01 12:14:02,274 | INFO     |   Retail              : 0.333  (n=18)
+2026-03-01 12:14:02,276 | INFO     |   Technology          : 0.357  (n=14)
+2026-03-01 12:14:04,882 | INFO     | Plots saved: plots\evaluation_results.png
+2026-03-01 12:14:05,125 | INFO     | Model saved: models\best_model.pkl
+2026-03-01 12:14:05,126 | INFO     | 
+✅ Training hoàn thành!
+2026-03-01 12:14:05,127 | INFO     |    Model → models/best_model.pkl
+2026-03-01 12:14:05,127 | INFO     |    Processor → models/processor.pkl
+2026-03-01 12:14:05,127 | INFO     | 
+Bước tiếp theo:
+2026-03-01 12:14:05,127 | INFO     |    python main.py predict --tickers HPG,REE,PNJ
+2026-03-01 12:21:53,750 | INFO     | Config loaded từ: C:\Users\NGOCD\Downloads\credit_rating_vn\config.yaml
+2026-03-01 12:21:53,754 | INFO     | ============================================================
+2026-03-01 12:21:53,754 | INFO     | QUICK TRAIN — bypass stratify bug
+2026-03-01 12:21:53,755 | INFO     | ============================================================
+2026-03-01 12:21:53,755 | INFO     | Loading: data\processed\training_data.csv
+2026-03-01 12:21:53,775 | INFO     | Loaded: 608 records, 56 columns
+2026-03-01 12:21:53,776 | INFO     | Detected data source: vnstock
+2026-03-01 12:21:53,783 | INFO     | Mapping report: {'n_records': 608, 'missing_feature_cols': [], 'missing_meta_cols': [], 'null_percentage': {}, 'is_valid': True}
+2026-03-01 12:21:53,788 | INFO     | Records với valid rating: 608
+2026-03-01 12:21:53,792 | INFO     | Rating distribution:
+Credit_Rating
+BBB    210
+BB     141
+B      100
+A       96
+AA      31
+CCC     27
+D        1
+AAA      1
+C        1
+Name: count, dtype: int64
+2026-03-01 12:21:53,794 | WARNING  | Ratings quá ít mẫu: ['D', 'AAA', 'C'] → gộp với class lân cận
+2026-03-01 12:21:53,798 | INFO     | Rating distribution sau gộp:
+Credit_Rating
+BBB    210
+BB     141
+B      100
+A       96
+AA      32
+CCC     29
+Name: count, dtype: int64
+2026-03-01 12:21:53,799 | INFO     | Cleaning 608 records...
+2026-03-01 12:21:53,803 | INFO     |   Dedup by Ticker: 608 → 598
+2026-03-01 12:21:53,842 | INFO     | Cleaned: 598 records
+2026-03-01 12:21:53,850 | INFO     | FeatureEngineer fitted on 598 samples, 7 sector-dependent features
+2026-03-01 12:21:53,851 | INFO     | Starting feature engineering...
+2026-03-01 12:21:54,064 | INFO     |   Interaction terms: 48
+2026-03-01 12:21:54,119 | INFO     | Total features: 101
+2026-03-01 12:21:54,120 | INFO     | Feature matrix shape: (598, 101)
+2026-03-01 12:21:54,131 | INFO     | Feature matrix: (598, 101)
+2026-03-01 12:21:54,135 | INFO     | Classes: [np.int64(0), np.int64(1), np.int64(2), np.int64(3), np.int64(4), np.int64(5)]
+2026-03-01 12:21:54,143 | INFO     | Train: 478 | Test: 120
+2026-03-01 12:21:54,144 | INFO     | ======================================================================
+2026-03-01 12:21:54,145 | INFO     | TRAINING MODELS
+2026-03-01 12:21:54,145 | INFO     | ======================================================================
+2026-03-01 12:21:54,146 | INFO     | 
+[1/3] Training RandomForest...
+2026-03-01 12:21:57,938 | INFO     |   CV Accuracy: 0.3599 ± 0.0515
+2026-03-01 12:21:57,939 | INFO     | 
+[2/3] Training XGBoost...
+2026-03-01 12:22:22,797 | INFO     |   CV Accuracy: 0.3450 ± 0.0530
+2026-03-01 12:22:22,798 | INFO     | 
+[3/3] Training GradientBoosting...
+2026-03-01 12:22:46,863 | INFO     |   CV Accuracy: 0.3617 ± 0.0612
+2026-03-01 12:22:46,864 | INFO     | 
+======================================================================
+2026-03-01 12:22:46,864 | INFO     | BEST: GradientBoosting  CV Acc: 0.3617
+2026-03-01 12:22:46,867 | INFO     | ======================================================================
+2026-03-01 12:22:46,912 | INFO     | 
+Top 20 Features:
+                   feature  importance
+                      ROCE    0.071272
+                  Altman_Z    0.051194
+              RETA_SectorZ    0.046072
+            Quality_Growth    0.037786
+              WCTA_SectorZ    0.034535
+            Coverage_Proxy    0.033497
+    Asset_Turnover_SectorZ    0.031334
+   Debt/Assets_SectorRatio    0.028894
+Asset_Turnover_SectorRatio    0.027301
+            Asset_Turnover    0.025375
+                       ROA    0.024139
+   EBIT_Margin_SectorRatio    0.020424
+ Current_Ratio_SectorRatio    0.020338
+           ROA_SectorRatio    0.019423
+             Current_Ratio    0.019149
+              Equity_Ratio    0.018811
+           Altman_Turnover    0.018083
+                      WCTA    0.017864
+       Debt/Assets_SectorZ    0.017717
+               Altman_WCTA    0.017396
+2026-03-01 12:22:46,916 | INFO     | 
+======================================================================
+2026-03-01 12:22:46,917 | INFO     | EVALUATION
+2026-03-01 12:22:46,917 | INFO     | ======================================================================
+2026-03-01 12:22:46,948 | INFO     | Accuracy:       0.3833
+2026-03-01 12:22:46,949 | INFO     | Kappa (quad):   0.0932
+2026-03-01 12:22:46,950 | INFO     | MAE (notches):  1.2833
+2026-03-01 12:22:46,950 | INFO     | Within 1 notch: 0.6833
+2026-03-01 12:22:46,951 | INFO     | Within 2 notch: 0.7917
+2026-03-01 12:22:46,969 | INFO     | 
+              precision    recall  f1-score   support
+
+          AA       0.25      0.17      0.20         6
+           A       0.50      0.20      0.29        20
+         BBB       0.41      0.72      0.53        40
+          BB       0.43      0.29      0.34        35
+           B       0.17      0.12      0.14        16
+         CCC       0.00      0.00      0.00         3
+
+    accuracy                           0.38       120
+   macro avg       0.29      0.25      0.25       120
+weighted avg       0.38      0.38      0.35       120
+
+2026-03-01 12:22:46,970 | INFO     | 
+Per-sector accuracy:
+2026-03-01 12:22:46,973 | INFO     |   Energy              : 0.424  (n=33)
+2026-03-01 12:22:46,975 | INFO     |   FinancialServices   : 0.200  (n=5)
+2026-03-01 12:22:46,978 | INFO     |   Healthcare          : 0.625  (n=8)
+2026-03-01 12:22:46,980 | INFO     |   Manufacturing       : 0.333  (n=33)
+2026-03-01 12:22:46,982 | INFO     |   Other               : 0.500  (n=8)
+2026-03-01 12:22:46,983 | INFO     |   Retail              : 0.333  (n=18)
+2026-03-01 12:22:46,985 | INFO     |   Technology          : 0.357  (n=14)
+2026-03-01 12:22:48,441 | INFO     | Plots saved: plots\evaluation_results.png
+2026-03-01 12:22:48,721 | INFO     | Model saved: models\best_model.pkl
+2026-03-01 12:22:48,722 | INFO     | 
+✅ Training hoàn thành!
+2026-03-01 12:22:48,722 | INFO     |    Model → models/best_model.pkl
+2026-03-01 12:22:48,723 | INFO     |    Processor → models/processor.pkl
+2026-03-01 12:22:48,723 | INFO     | 
+Bước tiếp theo:
+2026-03-01 12:22:48,723 | INFO     |    python main.py predict --tickers HPG,REE,PNJ
